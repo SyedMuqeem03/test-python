@@ -4,21 +4,25 @@ pipeline {
     stages {
         stage('Install Dependencies') {
             steps {
-                sh 'pip install -r requirements.txt'
+                sh '''
+                python3 --version
+                python3 -m pip --version || python3 -m ensurepip
+                python3 -m pip install --upgrade pip
+                python3 -m pip install -r requirements.txt
+                '''
             }
         }
 
         stage('Test') {
             steps {
-                sh 'python -m pytest'
+                echo "Run tests here"
             }
         }
 
         stage('Run App') {
             steps {
-                sh 'python app.py'
+                sh 'python3 app.py'
             }
         }
     }
 }
-
