@@ -4,7 +4,7 @@ def add(a, b):
 
 def main():
     print("Hello from Python app running in Jenkins!")
-    result = add(2, 3)
+    result = add(3, 3)
     print(f"3 + 3 = {result}")
 
 
